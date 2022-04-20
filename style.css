@@ -99,18 +99,60 @@ a {
     visibility: hidden;
     z-index: 1;
     overflow-y: auto;
+    border-radius: 10px;
+}
+
+#popup h1 {
+    margin-left: 20px;
 }
 
 #close {
     color: white;
+    background: transparent;
+    border: none;
     margin: 15px;
     font-size: 28px;
     font-weight: bold;
-    position: fixed;
+    float: right;
+    position: sticky;
 }
 
 #close:hover{
     color: blue;
     text-decoration: none;
     cursor: pointer;
+}
+
+#person-div {
+    background: gray;
+    margin: 20px;
+    display: flex;
+    border-radius: 10px;
+    height: 150px;
+}
+
+#person-image {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#person-img {
+    height: 125px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-top: 12.5px;
+    margin-left: 12.5px;
+}
+
+#person-text {
+    margin-left: 10px;
+    line-height: 150px;
+}
+
+#person-text h2 {
+    margin: 0;
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
 }
