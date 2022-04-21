@@ -12,6 +12,21 @@ body {
     height: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+    background: transparent;
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .15);
+    filter: blur(10px);
+}
+
 header {
     height: 100%;
     text-align: center;
@@ -173,5 +188,26 @@ a {
     width: auto;
     height: 90.3%;
     margin-left: 20px;
+    overflow-y: auto;
+}
+
+#popup-text-container h2 {
     margin-right: 20px;
+}
+
+#popup-text-container h3 {
+    margin-right: 20px;
+}
+
+#popup-text-container h4 {
+    margin-right: 20px;
+}
+
+#popup-text-container p {
+    margin-right: 20px;
+}
+
+#robot-24 {
+    width: 500px;
+    border-radius: 10px;
 }

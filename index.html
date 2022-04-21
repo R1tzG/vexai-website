@@ -52,7 +52,7 @@
                         <img src="person.jpg" alt="person" id="person-img">
                     </div>
                     <div id="person-text">
-                        <h2>Person 1</h2>
+                        <h2>Person 2</h2>
                     </div>
                 </div>
                 <div id="person-div">
@@ -60,7 +60,7 @@
                         <img src="person.jpg" alt="person" id="person-img">
                     </div>
                     <div id="person-text">
-                        <h2>Person 1</h2>
+                        <h2>Person 3</h2>
                     </div>
                 </div>
                 <div id="person-div">
@@ -68,7 +68,7 @@
                         <img src="person.jpg" alt="person" id="person-img">
                     </div>
                     <div id="person-text">
-                        <h2>Person 1</h2>
+                        <h2>Person 4</h2>
                     </div>
                 </div>
                 <div id="person-div">
@@ -76,7 +76,7 @@
                         <img src="person.jpg" alt="person" id="person-img">
                     </div>
                     <div id="person-text">
-                        <h2>Person 1</h2>
+                        <h2>Person 5</h2>
                     </div>
                 </div>
             </div>
@@ -85,14 +85,44 @@
             <button id="close2">&times;</button>
             <h1>24" Bot</h1>
             <div id="popup-text-container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id saepe blanditiis, sit explicabo fugiat rem incidunt possimus natus labore qui! Deserunt doloribus quis aspernatur laudantium, blanditiis soluta facilis consequatur hic.
+                <img src="robot.png" alt="24 robot" id="robot-24">
+                <h2>Bot Design</h2>
+                <p>Laser cutting</p>
+                <p>Motivation behind design.</p>
+                <h2>Computer Vision</h2>
+                <p>For a while, we had major voltage issues because of how the nano provided power to the camera. The nano has a limit on how much voltage it can draw, and a large majority of the power that was supposed to go to the nano was being drawn by the cameras. This would drop our voltage from ~5.2V to about ~4.2V when the camera was accessed. This had major results on our frames per second when running image detection, going from about 15 FPS when using a premade video to about 3 FPS when using the camera. 
+                    By using the cable splitters, we were able to take some of the weight off the nano, providing power directly to the camera from the power brick. A small issue this still has is backfeeding, where a small amount of additional voltage is provided to the nano through the data portion of the y-cable. This can cause the nano to crash during startup, so we have to plug in the cables after the nano has already started up.
+                </p>
+                <h2>Target Selection</h2>
+                <p>Not every ring that we detect with our camera is one that we can grab with our bot. It may be too close to the wall for our intake to get to or it may be underneath one of the two balances. Function uses four different checks to see if a ring is available to grab. It does these checks using the x and y positions of the ring and the bot, as well as the known positions of the balances if applicable
+                    Wall and balance simple: If the object is too close to the wall, our intake will not be able to grab it. Therefore, we simply check if the x and y values are less than the distance of the wall from the center minus about 9 inches. If the ring is less, it passes this check. If it is less, it fails it. The same applies to checking if a ring is under the balance. Because the balances will be in the same place every time, we can compare the x and y values of the ring with the balances to see if they are underneath and if so they do not pass the check.
+                    The second test is somewhat more complicated. Sometimes, both the object we are trying to move to and our bot are in valid locations, but a straight line path is not an option because the balance is in the way. To solve this, we can create a line between the bot and the ring using their positions and then input the x value of the side of the balance that is closest to the center and see if the y value returned is within the range of the balance. If so, we know that the path intersects the balance at least somewhat and so we know we cant get to the object and so we ignore it.
+                    However, the previous check does not work if both the bot and the object are both behind the balance’s closest side to the center, but are on opposite sides of the field. In this case, we check if they are past the closest side of the balance, then check if the signs of their y values match. If they don’t, then the target is not valid and we move on to the next one.
+                </p>
             </div>
         </div>
         <div id="popup3">
             <button id="close3">&times;</button>
             <h1>15" Bot</h1>
             <div id="popup-text-container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id saepe blanditiis, sit explicabo fugiat rem incidunt possimus natus labore qui! Deserunt doloribus quis aspernatur laudantium, blanditiis soluta facilis consequatur hic.
+                <img src="robot.png" alt="15 robot" id="robot-24">
+                <h2>Mapping</h2>
+                <h3>General Plan</h3>
+                <p>Divide the board into an n by n field, with each box containing a list of objects contained within the box.
+                    Use a reverse lookup table, with each key being a different type of object, and the value being all the boxes we can find this object.
+                    We use our current robot’s position, distance to object and calculated angle to object in order to determine the box the object should be put in, then we add this object to both the lookup and reverse lookup tables.
+                    Every second, before adding objects to the boxes, we need to first remove all objects that we should be able to see. Otherwise, the program will add the same object to the same box many times every second, making the map useless. To fix this problem, we first determine what objects we should be able to see based on our position, heading and FoV, then remove those objects from the map. Then, we add the objects back to the lookup tables, if the objects are still in their positions, they will be added back to the same place. If they have moved or are no longer there, they will not be added to the map. 
+                </p>
+                <h3>Pros and Cons</h3>
+                <h4>Pros</h4>
+                <p>Time Efficiency: If we know our robot’s current position, we are able to quickly access nearby “boxes” without iterating through a list of every object to check their distance from us.
+                    Accounts for Accuracy Loss: Our moving program relies on multiple frames of data, because generally quick frames while we are turning, moving, or the object is far away are very inaccurate. The box mapping accounts for this by giving us a general idea of where the object is, without giving us highly inaccurate coordinates.
+                    Gives idea of Density: We can get a basic idea of object density without needing another method which iterates through the entire list of objects and clusters them. We can give the program a range of boxes, and it will tell us which objects are in those boxes. This is helpful for decision making algorithms to evaluate which mogo is better to pick up.
+                </p>
+                <h4>Cons</h4>
+                <p>Accuracy: While there is a definite accuracy loss from mapping objects with a low frame count and large distance, there is a further accuracy loss from mapping via boxes instead of direct positioning.
+                    Object Permanence: Mapping objects in boxes rather than by direct position makes it more difficult to tell if objects have been moving, or if we are tracking the same object. WIth the lower raw accuracy, we also have slight losses in keeping track of a single object as it moves.
+                </p>
             </div>
         </div>
         <div id="popup4">
