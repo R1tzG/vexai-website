@@ -5,7 +5,7 @@ html {
 body {
     background: black;
     color: white;
-    font-family: 'Helvetica';
+    font-family: 'Akshar', sans-serif;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -35,9 +35,16 @@ header {
 #about-div {
     height: 100%;
     position: relative;
-    background-image: url("background.jpg");
+    background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#blur-div {
+    width: 100%;
+    height: 100%;
+    background-image: url("background2.jpg");
+    filter: blur(10px);
 }
 
 #about-div h1 {
@@ -66,8 +73,9 @@ header {
     padding-top: 20px;
 }
 
-#nav-element {
-    background: black;
+#nav-element1, #nav-element2, #nav-element3, #nav-element4 {
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
     width: 100%;
     height: 15vh;
     margin-bottom: 15px;
@@ -79,7 +87,7 @@ header {
     cursor: pointer;
 }
 
-#nav-element:hover {
+#nav-element1:hover, #nav-element2:hover, #nav-element3:hover, #nav-element4:hover {
     transform: scale(1.1);
     transition: 0.5s;
 }
@@ -89,24 +97,23 @@ a {
     color: white;
 }
 
-#popup {
+#popup, #popup2, #popup3, #popup4 {
     position: fixed;
-    background: black;
+    background: url(background3.webp);
     width: 90vw;
     height: 90vh;
     margin-top: 5vh;
     margin-left: 5vw;
     visibility: hidden;
     z-index: 1;
-    overflow-y: auto;
     border-radius: 10px;
 }
 
-#popup h1 {
+#popup h1, #popup2 h1, #popup3 h1, #popup4 h1 {
     margin-left: 20px;
 }
 
-#close {
+#close, #close2, #close3, #close4 {
     color: white;
     background: transparent;
     border: none;
@@ -117,14 +124,19 @@ a {
     position: sticky;
 }
 
-#close:hover{
+#close:hover, #close2:hover, #close3:hover, #close4:hover {
     color: blue;
     text-decoration: none;
     cursor: pointer;
 }
 
+#main-container {
+    overflow-y: auto;
+    height: 90.3%;
+}
+
 #person-div {
-    background: gray;
+    background-color: rgba(255, 255, 255, .15);
     margin: 20px;
     display: flex;
     border-radius: 10px;
@@ -155,4 +167,11 @@ a {
     line-height: 1.5;
     display: inline-block;
     vertical-align: middle;
+}
+
+#popup-text-container {
+    width: auto;
+    height: 90.3%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
