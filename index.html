@@ -89,13 +89,20 @@
             <div id="popup-text-container">
                 <img src="robot.png" alt="24 robot" id="robot-24">
                 <h2>Bot Design</h2>
-                <p>Laser cutting</p>
-                <p>Motivation behind design.</p>
+                <h3>Laser cutting</h3>
+                <h3>Motivation behind design.</h3>
                 <h2>Computer Vision</h2>
+                <h3>How the algorithm works</h3>
+                <h3>Speed ups from TensorRT</h3>
+                <h3>Speed ups from Y-cable splitter</h3>
                 <p>For a while, we had major voltage issues because of how the nano provided power to the camera. The nano has a limit on how much voltage it can draw, and a large majority of the power that was supposed to go to the nano was being drawn by the cameras. This would drop our voltage from ~5.2V to about ~4.2V when the camera was accessed. This had major results on our frames per second when running image detection, going from about 15 FPS when using a premade video to about 3 FPS when using the camera. 
                     By using the cable splitters, we were able to take some of the weight off the nano, providing power directly to the camera from the power brick. A small issue this still has is backfeeding, where a small amount of additional voltage is provided to the nano through the data portion of the y-cable. This can cause the nano to crash during startup, so we have to plug in the cables after the nano has already started up.
                 </p>
+                <h3>Speed ups from building IntelRealsense drivers with CUDA</h3>
+                <h2>Robot/Nano communications</h2>
+                <h3>Serial</h3>
                 <h2>Target Selection</h2>
+                <h3>Valid det function</h3>
                 <p>Not every ring that we detect with our camera is one that we can grab with our bot. It may be too close to the wall for our intake to get to or it may be underneath one of the two balances. Function uses four different checks to see if a ring is available to grab. It does these checks using the x and y positions of the ring and the bot, as well as the known positions of the balances if applicable
                     Wall and balance simple: If the object is too close to the wall, our intake will not be able to grab it. Therefore, we simply check if the x and y values are less than the distance of the wall from the center minus about 9 inches. If the ring is less, it passes this check. If it is less, it fails it. The same applies to checking if a ring is under the balance. Because the balances will be in the same place every time, we can compare the x and y values of the ring with the balances to see if they are underneath and if so they do not pass the check.
                     The second test is somewhat more complicated. Sometimes, both the object we are trying to move to and our bot are in valid locations, but a straight line path is not an option because the balance is in the way. To solve this, we can create a line between the bot and the ring using their positions and then input the x value of the side of the balance that is closest to the center and see if the y value returned is within the range of the balance. If so, we know that the path intersects the balance at least somewhat and so we know we cant get to the object and so we ignore it.
@@ -125,13 +132,19 @@
                 <p>Accuracy: While there is a definite accuracy loss from mapping objects with a low frame count and large distance, there is a further accuracy loss from mapping via boxes instead of direct positioning.
                     Object Permanence: Mapping objects in boxes rather than by direct position makes it more difficult to tell if objects have been moving, or if we are tracking the same object. WIth the lower raw accuracy, we also have slight losses in keeping track of a single object as it moves.
                 </p>
+                <h2>Bot Design</h2>
+                <h3>CAD, laser cutting, 3DP, CNC milled components</h3>
+                <h3>Motivation behind design</h3>
             </div>
         </div>
         <div id="popup4">
             <button id="close4">&times;</button>
             <h1>Strategy</h1>
             <div id="popup-text-container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id saepe blanditiis, sit explicabo fugiat rem incidunt possimus natus labore qui! Deserunt doloribus quis aspernatur laudantium, blanditiis soluta facilis consequatur hic.
+                <h2>24" purpose (scoring rings on alliance mogos</h2>
+                <h3>Why we chose this strategy</h3>
+                <h2>15" purpose (grabbing two mogos and balancing</h2>
+                <h3>Why we chose this strategy</h3>
             </div>
         </div>
         <script src="script.js"></script>
