@@ -142,12 +142,15 @@ header img {
     font-weight: bold;
     color: rgb(0, 81, 255);
     font-size: 2em;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 #about-div p {
     color: white;
-    font-weight: bold;
     font-size: 1em;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 #text-container {
@@ -243,7 +246,7 @@ a {
 }
 
 #person-img {
-    height: 125px;
+    width: 125px;
     border-radius: 50%;
     vertical-align: middle;
     margin-top: 12.5px;
@@ -252,14 +255,19 @@ a {
 
 #person-text {
     margin-left: 10px;
-    line-height: 150px;
+    width: 80%;
 }
 
 #person-text h2 {
     margin: 0;
-    line-height: 1.5;
-    display: inline-block;
+    line-height: normal;
+    margin-top: 10px;
     vertical-align: middle;
+}
+
+#person-text p {
+    margin: 0;
+    margin-top: 0px;
 }
 
 #popup-text-container {
@@ -288,4 +296,21 @@ a {
 #robot-24 {
     width: 500px;
     border-radius: 10px;
+}
+
+#copyright {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: transparent;
+}
+
+#copyright p {
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
