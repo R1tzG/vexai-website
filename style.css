@@ -35,13 +35,23 @@ header {
     background: black;
 }
 
+#header-content {
+    text-align: center;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 10px;
+    z-index: 99;
+    position: absolute;
+    font-size: 1.5em;
+}
+
 #background-video {
     width: 100%;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    filter: brightness(0.3);
-    display: none;
+    filter: brightness(1);
+    display: block;
 }
 
 #info-container {
@@ -52,7 +62,8 @@ header {
     text-align: center;
     color: white;
     font-size: 2em;
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column;
 }
 
@@ -302,6 +313,7 @@ a {
     width: 100%;
     position: absolute;
     bottom: 0;
+    display: flex;
     background: transparent;
 }
 
@@ -313,4 +325,11 @@ a {
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 0;
+}
+
+#copyright img {
+    width: 28px;
+    float: right;
+    margin-right: 0;
 }
