@@ -309,6 +309,12 @@ a {
     border-radius: 10px;
 }
 
+#strategy {
+    width: 500px;
+    border-radius: 10px;
+    background-color: white;
+}
+
 #copyright {
     width: 100%;
     position: absolute;
