@@ -258,6 +258,11 @@ a {
     width: 50%;
 }
 
+#person-div:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.324);
+    transition: 0.2s;
+}
+
 #person-image {
     display: inline-block;
     height: 100%;
