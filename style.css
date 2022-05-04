@@ -40,7 +40,7 @@ header {
     width: 100%;
     padding-top: 60px;
     padding-bottom: 10px;
-    z-index: 99;
+    z-index: 1;
     position: absolute;
     font-size: 1.5em;
 }
@@ -52,6 +52,7 @@ header {
     transform: translate(-50%, -50%);
     filter: brightness(1);
     display: block;
+    z-index: 0;
 }
 
 #info-container {
@@ -83,11 +84,10 @@ header h1 {
 }
 
 header img {
-    height: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    position: absolute;
+    width: 100%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #millburn-logo {
@@ -329,6 +329,10 @@ a {
 #robot-24 {
     width: 500px;
     border-radius: 10px;
+}
+
+#map {
+    width: 250px;
 }
 
 #strategy {

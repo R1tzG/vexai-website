@@ -10,6 +10,7 @@
     </head>
     <body>
         <header>
+            <img src="splashimg.png" alt="Millburn Robotics">
             <video id="background-video" autoplay loop muted>
                 <source src="splash.mp4" type="video/mp4">
             </video>
@@ -49,7 +50,6 @@
                     <div id="nav-element1">About Us</div>
                     <div id="nav-element2">24" Bot</div>
                     <div id="nav-element3">15" Bot</div>
-                    <div id="nav-element4">Strategy</div></a>
                 </div>
             </div>
             <div id="copyright">
@@ -242,7 +242,7 @@
                     Allows for the robot to have short term “memory” about the layout of areas of the field it has recently seen.
                     <br>
                     <br>
-                    <img src="strategy.png" alt="rings" id="strategy">
+                    <img src="map.png" alt="map" id="map">
                 </p>
                 <h3>Bot design</h3>
                 <h4>Motivation behind design: In order to meet the 15" design constraints for this robot, we use custom parts extensively.</h4>
@@ -253,21 +253,6 @@
                 </p>
             </div>
         </div>
-        <div id="popup4">
-            <button id="close4">&times;</button>
-            <h1>Strategy</h1>
-            <div id="popup-text-container">
-                <h2>24" purpose (scoring rings on alliance mogos</h2>
-                <p>
-                    The 24” is designed primarily to fill alliance mogos with rings. This is because each alliance mogo filled with rings is worth 30 additional points. Each filled mogo is then deposited into a corner on our side of the field, where it can be picked up by the 15” and brought onto the balance, or remain in a relatively safe location for the rest of the match.
-                </p>
-                <h2>15" purpose (grabbing two mogos and balancing</h2>
-                <p>
-                    The 15” is designed primarily to control neutral mogos. Unlike alliance mogos, neutral mogos can give points to either team, making them especially important. The 15” has mogo clamps on either side, and tries to grab two neutral goals right away during the 15 second isolation period. During the interactive period, it returns to our alliance balance and attempts to balance with both mogos for additional points. 
-                </p>
-            </div>
-        </div>
-        
         <script src="script.js"></script>
     </body>
 </html>

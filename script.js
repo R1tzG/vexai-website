@@ -3,19 +3,15 @@ var html = document.getElementsByTagName('html')[0];
 var popup  = document.getElementById('popup');
 var popup2 = document.getElementById('popup2');
 var popup3 = document.getElementById('popup3');
-var popup4 = document.getElementById('popup4');
 var button = document.getElementById('nav-element1');
 var button2 = document.getElementById('nav-element2');
 var button3 = document.getElementById('nav-element3');
-var button4 = document.getElementById('nav-element4');
 var span = document.getElementById('close');
 var span2 = document.getElementById('close2');
 var span3 = document.getElementById('close3');
-var span4 = document.getElementById('close4');
 var element1 = document.getElementById('nav-element1');
 var element2 = document.getElementById('nav-element2');
 var element3 = document.getElementById('nav-element3');
-var element4 = document.getElementById('nav-element4');
 var scroll = document.getElementById('scroll');
 var div2 = document.getElementById('about-div');
 
@@ -66,24 +62,6 @@ button3.onclick = function() {
 
 span3.onclick = function() {
     popup3.style.visibility = 'hidden';
-    body.style.overflow = 'auto';
-    element1.style.visibility = 'visible';
-    element2.style.visibility = 'visible';
-    element3.style.visibility = 'visible';
-    element4.style.visibility = 'visible';
-}
-
-button4.onclick = function() {
-    popup4.style.visibility = 'visible';
-    body.style.overflow = 'hidden';
-    element1.style.visibility = 'hidden';
-    element2.style.visibility = 'hidden';
-    element3.style.visibility = 'hidden';
-    element4.style.visibility = 'hidden';
-}
-
-span4.onclick = function() {
-    popup4.style.visibility = 'hidden';
     body.style.overflow = 'auto';
     element1.style.visibility = 'visible';
     element2.style.visibility = 'visible';
