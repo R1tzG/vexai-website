@@ -312,19 +312,73 @@ a {
 }
 
 #popup-text-container h2 {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 #popup-text-container h3 {
+    margin: 0;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 #popup-text-container h4 {
+    margin: 0;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 #popup-text-container p {
+    margin: 0;
     margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#row-container{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.one {
+    background: transparent;
+}
+
+.two {
+    background: transparent;
+}
+
+#row-container div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+#half {
+    width: 50%;
+}
+
+#full {
+    width: 100%;
+}
+
+.text {
+    background-color: rgba(255, 255, 255, .15);
+    border-radius: 10px;
+}
+
+#row-container img {
+    border-radius: 10px;
+}
+
+#spacing {
+    height: 25%;
 }
 
 #robot-24 {

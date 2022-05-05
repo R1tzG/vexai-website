@@ -48,8 +48,9 @@
                 </p>
                 <div id="navigation-div">
                     <div id="nav-element1">About Us</div>
-                    <div id="nav-element2">24" Bot</div>
-                    <div id="nav-element3">15" Bot</div>
+                    <div id="nav-element2">Code</div>
+                    <div id="nav-element3">24" Bot</div>
+                    <div id="nav-element4">15" Bot</div>
                 </div>
             </div>
             <div id="copyright">
@@ -77,11 +78,13 @@
                     </div>
                     <div id="person-div">
                         <div id="person-image">
-                            <img src="sahmrahman.png" alt="person" id="person-img">
+                            <img src="burkeseeger.jpg" alt="person" id="person-img">
                         </div>
                         <div id="person-text">
-                            <h2>Sahm Rahman</h2>
-                            <p>I co-developed an algorithm that would allow the robots to map all the objects they see from the camera using only its position. The robot gets this position using the deadwheels I helped install to have a thorough understanding of where everything is in the field.</p>
+                            <h2>Burke Seeger (Captain)</h2>
+                            <p>
+                                I'm the co-captain of AI and helped to manage people and projects as we work our way to creating a fully autonomous robot. I specialize in working on the python side of code, in addition to implementing position mapping.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +124,9 @@
                         </div>
                         <div id="person-text">
                             <h2>Ritvik Gupta</h2>
-                            <p></p>
+                            <p>
+                                I helped on the code team, working mainly on the YOLO V5 model to detect game objects. I also created this website as a form to showcase our work.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -142,6 +147,26 @@
                         <div id="person-text">
                             <h2>Becker Kotob</h2>
                             <p>I assisted with the build team and contributed to various parts of each robot including the lift, body and more. Millburn Robotics has taught me many things about engineering like the planning with software, trial & error and has made me many more friends</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="two-person">
+                    <div id="person-div">
+                        <div id="person-image">
+                            <img src="sahmrahman.png" alt="person" id="person-img">
+                        </div>
+                        <div id="person-text">
+                            <h2>Sahm Rahman</h2>
+                            <p>I co-developed an algorithm that would allow the robots to map all the objects they see from the camera using only its position. The robot gets this position using the deadwheels I helped install to have a thorough understanding of where everything is in the field.</p>
+                        </div>
+                    </div>
+                    <div id="person-div">
+                        <div id="person-image">
+                            <img src="maesubramanian.jpeg" alt="person" id="person-img">
+                        </div>
+                        <div id="person-text">
+                            <h2>Mae Subramanian</h2>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -169,88 +194,178 @@
         </div>
         <div id="popup2">
             <button id="close2">&times;</button>
-            <h1>24" Bot</h1>
+            <h1>Code</h1>
             <div id="popup-text-container">
-                <img src="robot.png" alt="24 robot" id="robot-24">
-                <h2>Bot Design</h2>
-                <h3>Motivation behind design.</h3>
-                <p>
-                    We use a holonomic x-drive as its strafing capabilities allow great maneuverability. However due to their angled wheels, X-drives are weak and bulky, so we use laser cut wheel hubs designed in CAD to make the most of our space with two motor mounts each for increased torque.
-                    <br>
-                    <br>
-                    <img src="x-drive.png" alt="x-drive" id="robot-24">
-                    <br>
-                    <br>
-                    Margins of error: Since AI robots are prone to inaccuracies, our bot is designed to work as expected even when approaching game elements slightly off-center.
-                    <br>
-                    Our mogo possession mechanism uses a 3D printed aligner perfectly shaped around the profile of a mogo to allow for the mogo to “lock into place” as we run into it.
-                    <br>
-                    <br>
-                    <img src="aligner.gif" alt="aligner" id="robot-24">
-                    <br>
-                    <br>
-                    Our ring intake is wider than most other VEX robots to increase our chances of successfully intaking rings.
-                    <br>
-                    <br>
-                    <img src="rings.gif" alt="rings" id="robot-24">
-                </p>
-                <h2>Code layout</h2>
-                <h3>Jetson Nano</h3>
-                <p>
-                    We use the YOLOv5 object detection model to generate bounding boxes around mogos and rings from video feed provided by our IntelRealsense LIDAR cameras. These bounding boxes as well as depth readings from the LIDAR give us exact positions of all game elements in frame.
-                    <br>
-                    <br>
-                    <img src="yolo.gif" alt="yolo" id="robot-24">
-                    <br>
-                    <br>
-                    Our program ran at 1.6 FPS November of 2021. With the following speed ups, our program runs at 8 FPS as of May 2022. 
-                    <br>
-                    Usage of the TensorRT framework allowed us to transfer YOLOv5 computations from the nano's CPU to its much faster GPU.
-                    <br>
-                    <br>
-                    <img src="tensorrt-logo.png" alt="tensorrt" id="robot-24">
-                    <br>
-                    <br>
-                    Building the IntelRealsense drivers using CUDA rather than default settings allowed us to transfer camera frame processing tasks from the CPU to the GPU.
-                    <br>
-                    Powering the Jetson Nano through its GPIO pins in addition to the default barrel jack port allows us to supply the Nano with extra voltage and processing power.
-                </p>
-                <h3>Robot/Nano communications</h3>
-                <p>
-                    A list of all object locations computed by the Nano is sent to the brain through a serial cable connecting the two. 
-                </p>
-                <h3>V5 Brain</h3>
-                <p>
-                    Once a list of data has been sent over to the V5 brain, we cross-check them against “deadzones” that the robot is not allowed to enter. For example, our robot should not be attempting to intake rings located under the balance. Once we determine which objects from this list are valid targets, we select the closest one and tell our robot to navigate towards it. 
-                    <br>
-                    <br>
-                    <img src="deadzones.jpg" alt="deadzones" id="robot-24">
-                </p>
+                <div id="row-container" class="one">
+                    <div id="half" style="background: rgb(81,71,68); border-radius: 10px;">
+                        <div id="spacing"></div>
+                        <img src="yolo.gif" alt="yolo">
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" class="text">
+                        <div id="spacing"></div>
+                        <h2>Object Detection</h2>
+                        <p>
+                            Using the Jetson Nano, we run the YOLOv5 object detection model to generate bounding boxes around mogos and rings from video feed provided by our IntelRealsense LIDAR cameras. These bounding boxes as well as depth readings from the LIDAR give us exact positions of all game elements in frame.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+                <div id="row-container" class="two">
+                    <div id="half" class="text">
+                        <div id="spacing"></div>
+                        <h2>Speed ups</h2>
+                        <p>
+                            Our program ran at 1.6 FPS November of 2021. With the following speed ups, our program runs at 8 FPS as of May 2022. 
+                            <br>
+                            Usage of the TensorRT framework allowed us to transfer YOLOv5 computations from the nano's CPU to its much faster GPU.
+                            <br>
+                            Building the IntelRealsense drivers using CUDA rather than default settings allowed us to transfer camera frame processing tasks from the CPU to the GPU.
+                            <br>
+                            Powering the Jetson Nano through its GPIO pins in addition to the default barrel jack port allows us to supply the Nano with extra voltage and processing power.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" style="background: white; border-radius: 10px;">
+                        <div id="spacing"></div>
+                        <img src="tensorrt-logo.png" alt="tensorrt-logo">
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+                <div id="row-container" class="one">
+                    <div id="half" style="background: white; border-radius: 10px;">
+                        <div id="spacing"></div>
+                        <img src="deadzone.png" alt="tensorrt-logo">
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" class="text">
+                        <div id="spacing"></div>
+                        <h2>Pathfinding</h2>
+                        <p>
+                            A list of all object locations computed by the Nano is sent to the V5 brain through a serial cable connecting the two. 
+                            <br>
+                            Once a list of data has been sent over to the V5 brain, we cross-check them against “deadzones” that the robot is not allowed to enter. For example, our robot should not be attempting to intake rings located under the balance. Once we determine which objects from this list are valid targets, we select the closest one and tell our robot to navigate towards it. 
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+                <div id="row-container" class="one">
+                    <div id="half" class="text">
+                        <div id="spacing"></div>
+                        <h2>Mapping</h2>
+                        <p>
+                            For simplicity, we define the field as a collection of 36 boxes. Using our robot's position and all YOLOv5 detections, we update each box with information about the number of rings and mogos inside at any given time.
+                            <br>
+                            Allows for the robot to have short term “memory” about the layout of areas of the field it has recently seen.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" style="background: white; border-radius: 10px;">
+                        <div id="spacing"></div>
+                        <img src="map.png" alt="tensorrt-logo">
+                        <div id="spacing"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="popup3">
             <button id="close3">&times;</button>
+            <h1>24" Bot</h1>
+            <div id="popup-text-container">
+                <div id="row-container" class="one">
+                    <div style="width: 25%"></div>
+                    <img src="robot.png" alt="24bot" style="height: 500px">
+                    <div style="width: 25%"></div>
+                </div>
+                <div id="row-container" class="one">
+                    <div id="full" class="text">
+                        <div id="spacing"></div>
+                        <h2>Strategy</h2>
+                        <p>
+                            The 24” is designed primarily to fill alliance mogos with rings. This is because each alliance mogo filled with rings is worth 30 additional points. Each filled mogo is then deposited into a corner on our side of the field, where it can be picked up by the 15” and brought onto the balance, or remain in a relatively safe location for the rest of the match.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+                <div id="row-container" class="two">
+                    <div id="half" style="background: rgb(36,59,56); border-radius: 10px;">
+                        <div id="spacing"></div>
+                        <img src="x-drive.png" alt="x-drive">
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" class="text">
+                        <div id="spacing"></div>
+                        <h2>Drive</h2>
+                        <p>
+                            We use a holonomic x-drive as its strafing capabilities allow great maneuverability. However due to their angled wheels, X-drives are weak and bulky, so we use laser cut wheel hubs designed in CAD to make the most of our space with two motor mounts each for increased torque.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+                <div id="row-container" class="one">
+                    <div style="width: 25%;">
+                        <div id="spacing"></div>
+                        <img src="aligner.gif" alt="mogo aligner" style="margin-bottom: 10px;">
+                        <div id="spacing"></div>
+                    </div>
+                    <div class="text" style="width: 75%;">
+                        <div id="spacing"></div>
+                        <h2>Scoring</h2>
+                        <p>
+                            Since our robot is guided by AI rather than human direction, it is highly likely that it will approach game elements like mogos or rings slightly off-center. To counter this, our bot has built in mechanisms that increase our margins of error.
+                            <br>
+                            Our mogo possession mechanism uses a 3D printed aligner perfectly shaped around the profile of a mogo to allow for the mogo to “lock into place” as we run into it.
+                            <br>
+                            Our ring intake is wider than most other VEX VRC robots to increase our chances of successfully intaking rings.
+                        </p>
+                        <div id="spacing"></div>
+                    </div>
+                    <div style="width: 25%;">
+                        <div id="spacing"></div>
+                        <img src="rings.gif" alt="ring intake">
+                        <div id="spacing"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popup4">
+            <button id="close4">&times;</button>
             <h1>15" Bot</h1>
             <div id="popup-text-container">
-                <h2>Mapping</h2>
-                <h3>General Plan</h3>
-                <p>
-                    Divide the field into 36 equally sized boxes.
-                    <br>
-                    Using the position of our robot and all outputs from our object detection algorithm, update each box with information about the number of rings and mogos inside at any given time. 
-                    <br>
-                    Allows for the robot to have short term “memory” about the layout of areas of the field it has recently seen.
-                    <br>
-                    <br>
-                    <img src="map.png" alt="map" id="map">
-                </p>
-                <h3>Bot design</h3>
-                <h4>Motivation behind design: In order to meet the 15" design constraints for this robot, we use custom parts extensively.</h4>
-                <p>
-                    Usage of ⅛” delrin as well as VEX gears milled to half their original thickness provides a low profile drive and compatibility with ball-bearings for reduced friction. 3D printed motor mounts half an inch shorter than the original VEX mounts maximize space in the middle of the drive for electronics.
-                    <br>
-                    Usage of ¼” delrin for the lift allows for a compact design compatible with bearings as well as easy mounting points for the VEX V5 brain.
-                </p>
+                <div id="row-container">
+                    <div id="full" class="text">
+                        <h2>Strategy</h2>
+                        <p>
+                            Unlike alliance mogos, neutral mogos can give points to either team, making them especially important. The 15” is designed primarily to control neutral mogos, using the 15 second isolation period to grab two mogos with its front and back clamps. During the interactive period, it attempts to balance with both mogos on our alliance platform for additional points. 
+                        </p>
+                    </div>
+                </div>
+                <div id="row-container">
+                    <div style="width: 25%;">
+                        <div id="spacing"></div>
+                        <img src="mount.jpg" alt="3d printed mount">
+                        <div id="spacing"></div>
+                    </div>
+                    <div id="half" class="text">
+                        <h2>Design</h2>
+                        <p>
+                            In order to meet the 15” design constraints for this robot, we use custom parts extensively.
+                            <br>
+                            Usage of ⅛” delrin as well as VEX gears milled to half their original thickness provides a low profile drive.
+                            <br>
+                            Usage of ¼” delrin for the lift allows for a compact design out of material stronger than vex c-channel with easy mounting points for the VEX V5 brain.
+                            <br>
+                            3D printed motor mounts half an inch shorter than the original VEX mounts maximize space in the middle of the drive for electronics.
+                            <br>
+                            Delrin on both the drive and the lift allows us to laser cut holes for ball bearings for reduced friction.
+                        </p>
+                    </div>
+                    <div style="width: 25%;">
+                        <div id="spacing"></div>
+                        <img src="milledgear.jpg" alt="normal vs milled gear">
+                        <div id="spacing"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="script.js"></script>
